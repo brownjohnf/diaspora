@@ -100,7 +100,7 @@ defaults: &defaults
   ## Set this to true to prevent people from signing up for your pod
   ## without an invitation. Note that this needs to be true even for
   ## the first registration (you).
-  registrations_closed: true
+  registrations_closed: false
 
   ## Set this to true if you don't want your users to follow the
   ## diasporahq@joindiaspora.com account on account creation.
