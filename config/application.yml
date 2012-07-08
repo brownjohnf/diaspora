@@ -100,7 +100,7 @@ defaults: &defaults
   ## Set this to true to prevent people from signing up for your pod
   ## without an invitation. Note that this needs to be true even for
   ## the first registration (you).
-  registrations_closed: false
+  registrations_closed: true
 
   ## Set this to true if you don't want your users to follow the
   ## diasporahq@joindiaspora.com account on account creation.
@@ -115,7 +115,7 @@ defaults: &defaults
   ## admin accout, use roles instead. See
   ## https://github.com/diaspora/diaspora/wiki/FAQ-for-Pod-Maintainers
   ## "What are roles and how do I use them?")
-  admin_account: ''
+  admin_account: 'jack'
 
   ## Settings about invitations
 
@@ -252,6 +252,7 @@ development:
 production:
   <<: *defaults
   jquery_cdn: true 
+  serve_static_assets: true
 
 ##################################################
 # FEDERATION LOGGER ##############################
