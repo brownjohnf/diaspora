@@ -25,6 +25,12 @@ before_fork do |server, worker|
   # If using preload_app, enable this line
   ActiveRecord::Base.connection.disconnect!
 
+  if !AppConfig.single_process_mode?
+    # clean up resque workers killed by previous deploys/restarts
+    Resque.workers.each { |w| w.unregister_worker }
+    @resque_pid ||= spawn('bundle exec rake resque:work QUEUES=*')
+  end
+
   # disconnect redis if in use
   if !AppConfig.single_process_mode?
     Resque.redis.client.disconnect
